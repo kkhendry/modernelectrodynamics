@@ -1,0 +1,318 @@
+\documentclass{article}
+\usepackage{amsmath}
+\newcommand{\un}{\hat{n}}
+\newcommand{\uv}[1]{\hat{e}_{#1}}
+\newcommand{\grad}[1]{\nabla{#1}}
+\newcommand{\dive}[1]{\nabla\cdot\vec{#1}}
+\newcommand{\curl}[1]{\nabla\times\vec{#1}}
+\newcommand{\op}{\prime}
+\newcommand{\pdt}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\ke}{\frac{1}{4\pi\epsilon_0}}
+\title{Electrostatics}\label{c3}
+\author{Amey Joshi}
+\date{10-Mar-2024}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item[(1)] The potentials are $V_1$ and $V_2$ in the left and right half-planes
+respectively. Therefore, the electric field is in the $x$ direction. It is non-
+zero only along the $y$-axis where the potential changes. Since $\vec{E} = 
+-\grad\varphi$,
+\[
+\vec{E} = -\uv{x}\lim_{\delta x \rightarrow 0}\frac{V_2 - V_1}{\delta}.
+\]
+As $V_2 < V_1$, the field is directed along the positive $x$ axis. A positively
+charged particle will accelerate along the positive $x$-axis. Only the $x$-
+component of the momentum changes, the $y$-component remains unchanged. If $\vec{p}$
+and $\vec{p}^{\;\op}$ are the momenta in negative and positive half-planes, $p_x^\op = 
+p_x + qE$, $p_y^\op = p_y$, $p = \sqrt{p_x^2 + p_y^2}, p^\op = \sqrt{{p_x^\op}^2
++ {p_y^\op}^2}$, $p_y = p\sin\theta_1, p_y^\op = p^\op\sin\theta_2$. Thus,
+\[
+(p_x^2 + p_y^2)\sin^2\theta_1 = ({p_x^\op}^2 + {p_y^\op}^2)\sin^2\theta_2,
+\]
+or
+\[
+(p_x^2 + p_y^2)\sin^2\theta_1 = ((p_x + qE)^2 + p_y^2)\sin^2\theta_2.
+\]
+Thus,
+\begin{equation}\label{e1}
+\frac{\sin\theta_1}{\sin\theta_2} = 
+\sqrt{1 + \frac{2p_xqE + q^2E^2}{p_x^2 + p_y^2}} =
+\sqrt{1 + \frac{2\cos\theta_1 qE}{p} + \frac{q^2E^2}{p^2}}
+\end{equation}
+The ratio of the sines of the two angles is not independent of the ``angle of
+incidence'' because the amount of ``refraction'' depends on how much of the
+total momentum is affected by the field.
+
+A step field of this kind described in this problem shows up at the semiconductor
+pn junction.
+
+\item[(2)] If $E_k = C_k + D_{kj}r_j$,
+\[
+\dive{E} = \dive{C} + \frac{\partial}{\partial x_k}(D_{kj}x_j) = \dive{C} +
+x_j\pdt{D_{kj}}{x_j} + D_{kj}\pdt{x_j}{x_k},
+\]
+that is,
+\[
+\dive{E} = \dive{C} + D_{kk}.
+\]
+If $\vec{C}$ is a constant vector, then $\dive{E} = D_{kk}$. In a charge free
+region, $\dive{E} = 0$. Therefore, the tensor $\underline{D}$ is traceless.
+
+We also have $\curl{E} = 0$. Thus,
+\[
+\epsilon_{ijk}\partial_jE_k = \epsilon_{ijk}\partial_jC_k + \epsilon_{ijk}\partial_j(D_{kl}x_l)
+= 0 + \epsilon_{ijk}D_{kl}\partial_j(x_l) = \epsilon_{ijk}D_{kl}\delta_{jl}.
+\]
+Thus, we have $\epsilon_{ijk}D_{jk} = 0$, that is, $D_{jk} = D_{kj}$.
+
+If $\varphi = -C_kx_k - x_kD_{kj}x_j$ then $E_k = \partial_k\varphi = C_k + D_{kj}r_j$.
+
+\item[(3a)] I'll quickly derive an expression for the electric field due to a
+uniformly charged ring at a point on its axis. Let the ring be in the $xy$ plane
+and its centre coincident with the origin. At any point on the $z$ axis only the
+$z$ component of the field will survive. Consider an element $dl$ of the ring
+with charge $\lambda dl$. If $r$ if the radius of the ring then its contribution
+to the field at a point $(0, 0, z)$ will be
+\[
+dE = \ke\frac{\lambda dl}{r^2 + z^2}\cos\theta,
+\]
+where $\theta$ is the polar angle. It is easy to see that 
+\[
+\cos\theta = \frac{z}{\sqrt{r^2 + z^2}}
+\]
+so that
+\[
+dE = \ke\frac{z\lambda dl}{(r^2 + z^2)^{3/2}}
+\]
+Since $dl = rd\phi$,
+\begin{equation}\label{e2}
+\vec{E} = \frac{1}{2\epsilon_0}\frac{\lambda rz}{(r^2 + z^2)^{3/2}}\uv{z}.
+\end{equation}
+If $q = 2\pi r \lambda$,
+\begin{equation}\label{e3}
+\vec{E} = \ke\frac{qz}{(r^2 + z^2)^{3/2}}\uv{z}.
+\end{equation}
+We can get to the same result by first finding the potential. The potential
+$d\varphi$ due to an element $dl$ is
+\[
+d\varphi = \ke\frac{\lambda dl}{\sqrt{r^2 + z^2}} = \ke\frac{\lambda r d\phi}{\sqrt{r^2 + z^2}},
+\]
+so that
+\begin{equation}\label{e4}
+\phi = \ke \frac{2\pi r\lambda }{\sqrt{r^2 + z^2}} = \ke \frac{q}{\sqrt{r^2 + z^2}}
+\end{equation}
+so that
+\[
+\vec{E} = -\grad\varphi = \ke\frac{qz}{(r^2 + z^2)^{3/2}}\uv{z}.
+\]
+
+Calculating the potential is much simpler than the field. We will, therefore, use
+equation \eqref{e4} to calculate the potential due to a spherical shell at a point 
+outside it. We can always orient the $z$ axis along the centre of the shell and the
+field point. A shell of 
+radius $a$ can be considered to be made up of rings of infinitesimal thickness whose
+radii $b$ increase from $0$ to $a$ and then decrease to $0$ as the distance from the
+centre of the ring to the field point increases from $z - a$ to $z$ to $z + a$. The
+potential due to the elementary ring as a position $z^\op$ is
+\[
+d\varphi = \ke \frac{dq}{\sqrt{b^2 + (z - z^\op)^2}}.
+\]
+Now $b^2 + {z^\op}^2 = a^2$ so that
+\[
+d\varphi = \ke \frac{dq}{\sqrt{a^2 + z^2 - 2z^\op z}}.
+\]
+We can also write $b = a\sin\psi, z^\op = a\cos\psi$ so that as $\psi$ varies from
+$0$ to $\pi$ the entire shell is generated. Thus,
+\[
+d\varphi = \ke \frac{dq}{\sqrt{a^2 + z^2 - 2az\cos\psi}}.
+\]
+We also have $dq = \sigma (2\pi b ad\psi)$ so that
+\[
+d\varphi = \frac{2\pi a^2 \sigma}{4\pi\epsilon_0} \frac{\sin\psi d\psi}{\sqrt{a^2 + z^2 - 2az\cos\psi}}.
+\]
+Therefore,
+\[
+\varphi = \int_0^\pi \frac{2\pi a^2 \sigma}{4\pi\epsilon_0} \frac{\sin\psi d\psi}{\sqrt{a^2 + z^2 - 2az\cos\psi}}.
+\]
+Let $u = a^2 + z^2 - 2az\cos\psi$ so that $du = 2az\sin\psi d\psi$ and the 
+limits of integration are from $(z - a)^2$ to $(z + a)^2$. Thus,
+\[
+\varphi = \frac{2\pi a^2 \sigma}{4\pi\epsilon_0}\int_{(z-a)^2}^{(z+a)^2}\frac{1}{2az} \frac{du}{\sqrt{u}}
+= \frac{2\pi a^2 \sigma}{4\pi\epsilon_0}\frac{1}{2az} (2\sqrt{u})\Big|_{(z-a)^2}^{(z+a)^2} = 
+\frac{2\pi a^2 \sigma}{4\pi\epsilon_0}\frac{4a}{2az}
+\]
+Thus,
+\begin{equation}\label{e5}
+\varphi = \ke \frac{4\pi a^2\sigma}{z} = \ke \frac{q}{z}.
+\end{equation}
+The electric field is
+\begin{equation}\label{e6}
+\vec{E} = \ke \frac{q}{z^2}\uv{z}.
+\end{equation}
+
+The electric field inside a spherical shell is zero. It is an immediate consequence
+of Gauss' law
+\[
+\oint_S\vec{E}\cdot\un da = \frac{Q_{\text{enc}}}{\epsilon_0},
+\]
+where $Q_{\text{enc}}$ is the charge enclosed by $S$. We choose $S$ to be a small
+spherical surface around the field point, entirely inside the shell.
+
+\item[(3b)] We will use the expression for potential due to a ring to calculate 
+that due to a charged disc at a field point on the disc's axis. If $dq$ is the 
+charge on an infinitesimally thick ring of radius $r$ and thickness $dr$ then 
+$dq = \sigma \times 2\pi rdr$. From equation \eqref{e5},
+\[
+d\varphi = \ke\frac{dq}{z} = \ke\frac{2\pi\sigma rdr}{z}
+\]
+so that for a disc of radius $a$,
+\[
+\varphi = \int_0^a \ke\frac{2\pi\sigma rdr}{z} = \ke\frac{2\pi\sigma}{z}\frac{a^2}{2}.
+\]
+Since $\sigma\pi a^2 = q$, the total charge on the disc, we have
+\begin{equation}\label{e7}
+\varphi = \ke\frac{q}{z}
+\end{equation}
+and hence 
+\begin{equation}\label{e8}
+\vec{E} = \ke \frac{q}{z^2}\uv{z}.
+\end{equation}
+The calculation of the electric field at a point outside the sphere proceeds in
+exactly the same way as in the case of the shell. For the case of the field point 
+inside the sphere, we can either use Gauss' law or ``summation method''. To
+demonstrate the latter method, let the field point be at a distance $r_0$ from the
+centre of the sphere. The potential at the field point will get a contribution
+from shells of all radii from $0$ to $r_0$. If $dr$ is the thickness of the shell
+then its volume is $4\pi r^2dr$. If $\rho$ is the charge density then the total
+charge on the shell is $4\pi r^2\rho dr$. From equation \eqref{e5}, it contributes
+a potential
+\[
+d\varphi = \ke \frac{4\pi r^2\rho dr}{r_0}
+\]
+Potential due to all shells will be
+\[
+\varphi = \ke\frac{4\pi\rho}{r_0}\frac{r_0^3}{3} = \ke\frac{Q_{\text{enc}}}{r_0}
+\]
+The field derived from this potential is the same as derived from Gauss' law.
+
+\item[4] We need Gauss' law in integral form:
+\[
+\oint\vec{E}\cdot\un da = \frac{1}{\epsilon_0}\int_V \rho dv.
+\]
+If the charge distribution is radial then $\vec{E}$ too has a radial symmetry,
+\begin{enumerate}
+\item[(a)] This is a one dimensional problem with charge density symmetric about
+the origin. To find the electric field at $x = R$ we just need,
+\[
+\int_{-R}^R \rho dx = -\frac{\rho_0}{\kappa}(e^{-\kappa R} - e^{\kappa R})
+= \frac{2\rho_0}{\kappa}\sinh(R).
+\]
+The surface integral is just $2E(R)$. Therefore,
+\[
+E(R) = \frac{2\rho_0}{\kappa\epsilon_0}\sinh(R).
+\]
+
+\item[(b)] In two dimensions, a spherical ``surface'' is just a circle of radius
+$r$ and centre at the origin. The ``surface integral'' evaluates to $2\pi RE(R)$.
+The charge enclosed in the surface is
+\[
+\iint_S e^{-kr}rdrd\theta = 
+2\rho_0\pi\left(\frac{1}{\kappa^2} - \frac{(\kappa R + 1)e^{-\kappa R}}{\kappa^2}\right)
+\]
+so that
+\[
+E(R) = \frac{\rho_0}{R\kappa^2\epsilon_0}\left(1 - (\kappa R + 1)e^{-\kappa R}\right).
+\]
+
+\item[(c)] In three dimensions, the surface integral is $4\pi R^2E(R)$ and the 
+charge enclosed by the surface is
+\begin{eqnarray*}
+\iiint_S \rho_0 e^{-\kappa r}r^2\sin\theta drd\theta d\phi
+&=& 4\pi\rho_0 \int_0^R r^2 e^{-\kappa r}dr \\
+&=& \frac{4\pi\rho_0}{\kappa^3}\left(2 - (2 + 2\kappa R + \kappa^2R^2)e^{-\kappa R}\right),
+\end{eqnarray*}
+so that
+\[
+E(R) = \frac{\rho_0}{R^2\epsilon_0\kappa^3}\left(2 - (2 + 2\kappa R + \kappa^2R^2)e^{-\kappa R}\right)
+\]
+\end{enumerate}
+
+\item[(6)] The force on a volume element $\delta v$ of $\rho(\vec{r})$ is 
+$\delta\vec{F} = \rho(\vec{r})\vec{E}(\vec{r})\delta v$. Therefore, the torque 
+on it is
+\[
+\delta\vec{N} = \vec{r} \times \delta\vec{F} = \vec{r}\times\rho(\vec{r})\vec{E}(\vec{r})\delta v
+\]
+so that
+\[
+\vec{N} = \int d^r \vec{r}\times\rho(\vec{r})\vec{E}(\vec{r}).
+\]
+The result follows immediately from 
+\[
+\vec{E}(\vec{r}) = \ke\int d^3r^\op \frac{\rho(\vec{r})(\vec{r} - \vec{r}^{\;\op})}{|\vec{r} - \vec{r}^\op|^3}.
+\]
+
+\item[(9)] Let $S$ be a parallelpiped bounded by the planes $z = 0, z = a$ and 
+infinite in all other directions. Then, using Gauss' law
+\[
+\int_S d\vec{S}\cdot\vec{E} = \frac{Q}{\epsilon_0}.
+\]
+A parallelpiped has six faces. Of these four that are perpendicular to the $z = 0$
+plane are at an infinite distance from the charge but they are not themselves 
+infinitely large. Therefore, the flux through them will be zero. That leaves us 
+with
+\[
+\int_S d\vec{S}\cdot\vec{E} = \int_{z=0} d\vec{S}\cdot\vec{E} + \int_{z=-a}
+ d\vec{S}\cdot\vec{E}
+\]
+By symmetric, the two integrals will contribute equally, so that
+\[
+\int_S d\vec{S}\cdot\vec{E} = 2\int_{z=0} d\vec{S}\cdot\vec{E}
+\]
+from which we get
+\[
+\int_{z=0} d\vec{S}\cdot\vec{E} = \frac{Q}{2\epsilon_0}.
+\]
+
+
+\item[(10)] Green's reciprocity theorem to prove a property of harmonic functions.
+\begin{enumerate}
+\item[(a)] Choose $f = \varphi, g = 1/r$ so that the Green's reciprocity theorem gives
+\[
+\int d^3 r\left(\varphi\nabla^2\left(\frac{1}{r}\right) - \left(\frac{1}{r}\right)\nabla^2\varphi\right)
+= \int d\vec{S}\cdot\left(\varphi\grad{\left(\frac{1}{r}\right)} - \left(\frac{1}{r}\right)\grad\varphi\right).
+\]
+In a charge free region, $\nabla^2\varphi = 0$. Further, $\nabla^2(r^{-1}) = 
+-4\pi\delta(0)$ so that the left hand side is
+\[
+-4\pi\varphi(0) = \int d\vec{S}\cdot\left(\varphi\left(-\frac{\vec{r}}{r^3}\right) +
+\left(\frac{1}{r}\right)\vec{E}\right).
+\]
+For the integral on rhs choose a surface of a sphere of radius $r$ so that
+\[
+-4\pi\varphi(0) = -\frac{1}{r^2}\int d\vec{S}\cdot\varphi(r)\uv{r} +
+\int d\vec{S}\cdot\vec{E}
+\]
+The second term on the rhs is zero because there is no charge enclosed within the
+surface. Thus we have,
+\[
+\frac{1}{4\pi r^2}\int_0^\pi \sin\theta d\theta\int_0^{2\pi}d\phi\varphi(r) = \varphi(0)
+\]
+The expression on lhs is the average of $\varphi$ on a sphere of radius $r$.
+
+\item[(b)] Consider a test charge $q$ in an electrostatic field produced by static
+charges. A position $\vec{r}_0$ of $q$ is a stable point if the net field at $\vec{r}_0$
+is zero. It is stable equilibrium if the potential at it is a minimum. For sake of
+notational convenience, shift the origin to $\vec{r}_0$. If suppose it were a minimum 
+and we consider its average on a small sphere centred around it with radius $a$ then
+by the equation
+\[
+\frac{1}{4\pi a^2}\int_0^\pi \sin\theta d\theta\int_0^{2\pi}d\phi\varphi() = \varphi(0).
+\]
+This means that there are some points on the surface at which the potential has
+a value lower than it has at the origin. Therefore, the origin cannot be a stable
+equilibrium.
+\end{enumerate}
+\end{enumerate}
+\end{document}
